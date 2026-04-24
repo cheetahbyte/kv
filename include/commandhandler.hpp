@@ -6,10 +6,8 @@
 class CMDHandler {
     public:
         std::string parse(std::istringstream&);
-        CMDHandler();
-        ~CMDHandler();
     private:
-        KVStore *store;
+        KVStore store;
 };
 
 #endif

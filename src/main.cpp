@@ -4,12 +4,12 @@
 #include <sstream>
 
 int main() {
-    CMDHandler* cmdHandler = new CMDHandler();
+    CMDHandler cmdHandler;
 
     std::string line;
     while (std::getline(std::cin, line)) {
         std::istringstream iss(line);
-        auto result = cmdHandler->parse(iss);
+        auto result = cmdHandler.parse(iss);
         std::cout << result << "\n";
     }
     return 0;

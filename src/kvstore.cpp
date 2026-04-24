@@ -1,13 +1,15 @@
 #include "kvstore.hpp"
 
-std::string KVStore::get(std::string key) {
-    if (store.contains(key)) {
-        return store[key];
-    } else {
-        return "NOT FOUND";
-    }
+std::optional<std::string> KVStore::get(const std::string &key) const {
+  auto it = store.find(key);
+
+  if (it != store.end()) {
+    return it->second;
+  }
+
+  return std::nullopt;
 }
 
-void KVStore::put(std::string key, std::string value) {
-    store[key] = value;
+void KVStore::put(const std::string &key, const std::string &value) {
+  store[key] = value;
 }
