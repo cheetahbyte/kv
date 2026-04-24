@@ -1,5 +1,4 @@
-#ifndef KVSTORE_H
-#define KVSTORE_H
+#pragma once
 #include <optional>
 #include <string>
 #include <unordered_map>
@@ -12,5 +11,3 @@ class KVStore {
     private:
         std::unordered_map<std::string, std::string> store;
 };
-
-#endif

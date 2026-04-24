@@ -1,5 +1,4 @@
-#ifndef CMDHandler_H
-#define CMDHandler_H
+#pragma once
 #include "kvstore.hpp"
 #include <sstream>
 
@@ -9,5 +8,3 @@ class CMDHandler {
     private:
         KVStore store;
 };
-
-#endif
