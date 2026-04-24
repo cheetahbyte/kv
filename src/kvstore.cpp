@@ -13,3 +13,8 @@ std::optional<std::string> KVStore::get(const std::string &key) const {
 void KVStore::put(const std::string &key, const std::string &value) {
   store[key] = value;
 }
+
+
+void KVStore::remove(const std::string &key) {
+    store.erase(key);
+}

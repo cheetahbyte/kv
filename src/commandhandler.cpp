@@ -18,6 +18,11 @@ std::string CMDHandler::execute(const std::string &line) {
     iss >> key;
     std::optional<std::string> value = store.get(key);
     return value.value_or("NOT FOUND");
+  } else if (cmd == "DELETE") {
+    std::string key;
+    iss >> key;
+    store.remove(key);
+    return "OK";
   } else {
     return "UNKNOWN COMMAND";
   }
