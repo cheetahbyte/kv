@@ -1,8 +1,10 @@
 #include "commandhandler.hpp"
 #include "kvstore.hpp"
 #include <optional>
+#include <sstream>
 
-std::string CMDHandler::parse(std::istringstream& iss) {
+std::string CMDHandler::execute(const std::string &line) {
+  std::istringstream iss(line);
   std::string cmd;
   iss >> cmd;
 
@@ -12,11 +14,11 @@ std::string CMDHandler::parse(std::istringstream& iss) {
     store.put(key, value);
     return "OK";
   } else if (cmd == "GET") {
-      std::string key;
-      iss >> key;
-      std::optional<std::string> value = store.get(key);
-      return value.value_or("NOT FOUND");
+    std::string key;
+    iss >> key;
+    std::optional<std::string> value = store.get(key);
+    return value.value_or("NOT FOUND");
   } else {
-      return "UNKNOWN COMMAND";
+    return "UNKNOWN COMMAND";
   }
 }

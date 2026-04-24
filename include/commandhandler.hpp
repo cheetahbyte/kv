@@ -1,10 +1,10 @@
 #pragma once
 #include "kvstore.hpp"
-#include <sstream>
+#include <string>
 
 class CMDHandler {
     public:
-        std::string parse(std::istringstream&);
+        std::string execute(const std::string& line);
     private:
         KVStore store;
 };
